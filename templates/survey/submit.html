@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <form action="/create/" method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+    {% if question.index == 1 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>          
+        <input id="question{{ question.index }}" type="text" class="form-control" name="question{{ question.index }}" required>
+      </div>
+    {% elif question.index == 3 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="I don't know">I don't know</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% elif question.index == 5 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="I don't know">I don't know</option>
+          <option value="No">No</option>
+          <option value="Not eligible for coverage/NA">Not eligible for coverage/NA</option>
+          <option value="Yes">Yes</option>
+        </select>    
+      </div>
+    {% elif question.index == 6 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="I don't know">I don't know</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% elif question.index == 7 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="Maybe">Maybe</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% elif question.index == 9 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="Difficult">Difficult</option>
+          <option value="I don't know">I don't know</option>
+          <option value="Neither easy nor difficult">Neither easy nor difficult</option>
+          <option value="Somewhat difficult">Somewhat difficult</option>
+          <option value="Somewhat easy">Somewhat easy</option>
+          <option value="Very easy">Very easy</option>
+        </select>    
+      </div>
+    {% elif question.index == 10 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="Maybe">Maybe</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% elif question.index == 11 %}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="Maybe">Maybe</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% else%}
+      <div class="form-group text-left col-sm-10">
+        <label for="question{{ question.index }}">Q{{question.index}}: {{question.question.questiontext}}</label>
+        <select id="question{{ question.index }}" name="question{{ question.index }}" class="form-control">
+          <option value="" selected>Please select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>    
+      </div>
+    {% endif %}
+    {% endfor %}
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+</div>
+<script type="text/javascript">
+ 
+</script>
+{% endblock %}

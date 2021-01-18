@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if surveys %}
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Survey ID</th>
+      <th scope="col">Survey Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for survey in surveys %}
+    <tr onclick="window.location='{% url 'results' survey.surveyid %}?question=1'">
+      <td>{{ survey.surveyid }}</td>
+      <td>{{ survey.description }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>There's no survey to show.</p>
+{% endif %}
+{% endblock %}
